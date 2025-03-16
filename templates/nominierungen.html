@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+{%with messages = get_flashed_messages()%}
+    {% if messages %}
+        {% for message in messages %}
+        <h1 style="background-color:powderblue;">{{message}}</h1>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<a href="http://127.0.0.1:5000/nominierungsformular">Einen weiteren Ausdruck nominieren</a>
+<br>
+<a href="http://127.0.0.1:5000">Ich will heim</a>
+<br>
+<a href="http://127.0.0.1:5000/abstimmung">Zur Abstimmung</a>
+
+<h2>Am heutigen Tage wurde bereits nominiert: </h2>
+<ul></ul>
+{% for nominierung in nominierungsliste %}
+    <li style="font-size: larger;">
+        {{ nominierung.ausdruck }} 
+        <span style="font-size: smaller;">({{ nominierung.likes }} likes)</span>
+    </li>
+{% endfor %}
+</ul>
+</body>
+</html>

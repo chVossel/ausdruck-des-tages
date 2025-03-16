@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="background-color:powderblue;">Abstimmung zum Ausdruck des Tages per Hammelsprung</h1>
+
+<a href="http://127.0.0.1:5000/nominierungsformular">Einen weiteren Ausdruck nominieren</a>
+<br>
+<a href="http://127.0.0.1:5000">Ich will heim</a>
+
+<h2>Zur Abstimmung stehen: </h2>
+<ul>
+    {% for nominierung in nominierungsliste %}
+    <li style="font-size: larger;">
+        {{ nominierung.ausdruck }}
+        <form action="#" method="post" style="display:inline;">
+            <input type="hidden" name="ausdruck" value="{{nominierung.ausdruck}}">
+            <input type="submit" value="Abstimmen">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
