@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block title %}Abstimmung{% endblock %}
 
-<h1 style="background-color:powderblue;">Abstimmung zum Ausdruck des Tages per Hammelsprung</h1>
+{% block content %}
+<h1 style="background-color:powderblue;">Abstimmung zum Ausdruck des Tages </h1>
 
-<a href="http://127.0.0.1:5000/nominierungsformular">Einen weiteren Ausdruck nominieren</a>
 <br>
-<a href="http://127.0.0.1:5000">Ich will heim</a>
-
-<h2>Zur Abstimmung stehen: </h2>
+<h3>Zur Abstimmung stehen: </h3>
 <ul>
     {% for nominierung in nominierungsliste %}
     <li style="font-size: larger;">
@@ -20,5 +17,4 @@
     </li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}

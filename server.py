@@ -19,6 +19,9 @@ def nominierungen():
 
 @app.route('/abstimmung', methods=["POST", "GET"])
 def abstimmen():
+    # Diese Methode wird entweder per Get oder Post aufgerufen.
+    # Get wenn einfach die entsprechende URL eingegeben wird
+    # Post wenn ein Abstimmungsbutton geklickt wurde
     if request.method == "POST":
 
         # Erhalte den ausdruck der gewählt wurde
@@ -28,8 +31,11 @@ def abstimmen():
         for ausdruck in heutige_nominierungen:
             if ausdruck.ausdruck == gewaehlter_ausdruck:
                 ausdruck.like_hinzufuegen()
+
+                # flashe eine Nachricht, die in nominierung.hmtl dann auferufen wird
                 nachricht=f'Supi, du hast erfolgreich für "{ausdruck.ausdruck}" abgestimmt!'
                 flash(nachricht)
+
         return redirect(url_for("nominierungen", ausdruck=gewaehlter_ausdruck))
     else:
         return render_template('abstimmung.html', nominierungsliste=heutige_nominierungen)
@@ -40,7 +46,7 @@ def submit():
         nominierter_ausdruck = request.form["nm"]
         neuer_ausdruck = Ausdruck(ausdruck=nominierter_ausdruck)
         heutige_nominierungen.append(neuer_ausdruck)
-        nachricht=f'Fantastisch, du hast "{nominierter_ausdruck}" erfolgreich zum Ausdruck des Tages nominiert!'
+        nachricht=f'Fantastisch, du hast "{nominierter_ausdruck}" zum Ausdruck des Tages nominiert!'
         flash(nachricht)
         return redirect(url_for("nominierungen", ausdruck=nominierter_ausdruck))
     else:

@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block title %}Nominierung{% endblock %}
+
+
+{% block content %}
 {%with messages = get_flashed_messages()%}
     {% if messages %}
         {% for message in messages %}
@@ -9,13 +11,8 @@
     {% endif %}
 {% endwith %}
 
-<a href="http://127.0.0.1:5000/nominierungsformular">Einen weiteren Ausdruck nominieren</a>
-<br>
-<a href="http://127.0.0.1:5000">Ich will heim</a>
-<br>
-<a href="http://127.0.0.1:5000/abstimmung">Zur Abstimmung</a>
 
-<h2>Am heutigen Tage wurde bereits nominiert: </h2>
+<h2> Am heutigen Tage wurde bereits nominiert: </h2>
 <ul></ul>
 {% for nominierung in nominierungsliste %}
     <li style="font-size: larger;">
@@ -24,5 +21,4 @@
     </li>
 {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}

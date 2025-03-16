@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block title %}Ausdruck des Tages{% endblock %}
 
+{% block content %}
 <h2>Ausdruck des Tages</h2>
 
 <h1 style="background-color:powderblue;">{{ausdruck}}</h1>
 
 <a href="https://www.duden.de/suchen/dudenonline/Halunke">Hier gehts zum Dudeneintrag</a>
 <br>
-<a href="http://127.0.0.1:5000/nominierungsformular">Einen Ausdruck nominieren</a>
 
 <!-- <img src="C:\Users\z0050b1n\Documents\Web_programming\buch_bild.jpg" alt="HALLOO" width="104" height="142"> -->
-
-</body>
-</html>
+{% endblock %}

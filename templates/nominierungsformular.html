@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block title %}Nominierungsformular{% endblock %}
 
+{% block content %}
 <h2>Nominierungsformular</h2>
 
 <form action="#" method="post">
     <p>Dein Ausdruck:</p>
-    <p><input type="text" name="nm"/> </p>
+    <p><input type="text" name="nm" size="40"/> </p>
     <p><input type="submit" value="Nominieren"/> </p>
-
 </form>
-
-</body>
-</html>
+{% endblock %}
